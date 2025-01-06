@@ -1,7 +1,4 @@
 .vs
-//bin/debug
-//bin/release
-//obj/debug
-//obj/release
+bin/
+obj/
 
-/ExploringJwt/ExploringClientCredentialsFlow/obj
