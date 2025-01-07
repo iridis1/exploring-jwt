@@ -8,7 +8,7 @@ namespace ExploringClientCredentialsFlow.Controllers
     [Route("api/[controller]")]
     public class HelloController : ControllerBase
     {
-        [HttpGet(Name = "SayHello")]
+        [HttpGet(Name = "hello")]
         public string SayHello() => "Hello";
     }
 }

@@ -11,6 +11,8 @@ namespace ExploringClientCredentialsFlow
         {
             var builder = WebApplication.CreateBuilder(args);
 
+            builder.Services.Configure<RouteOptions>(options => options.LowercaseUrls = true );
+
             builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
              {
                  options.TokenValidationParameters = new TokenValidationParameters
@@ -48,7 +50,7 @@ namespace ExploringClientCredentialsFlow
                             Reference = new OpenApiReference
                             {
                                 Type = ReferenceType.SecurityScheme,
-                                Id = "Bearer"
+                                Id = "Bearer2"
                             }
                         },
                         Array.Empty<string>()
@@ -59,7 +61,6 @@ namespace ExploringClientCredentialsFlow
 
             var app = builder.Build();
 
-            // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
             {
                 app.UseSwagger();
