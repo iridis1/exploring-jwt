@@ -1,7 +1,4 @@
-﻿using System.Security.Claims;
-using System.Text;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 
 namespace ExploringClientCredentialsFlow.Controllers
@@ -11,9 +8,8 @@ namespace ExploringClientCredentialsFlow.Controllers
     public class TokenController : ControllerBase
     {
         [HttpGet(Name = "token")]
-        public string getToken()
+        public string CreateToken()
         {
-
             var claims = new Dictionary<string, object>()
             {
                 ["bank.name"] = "Rabobank",
@@ -27,14 +23,13 @@ namespace ExploringClientCredentialsFlow.Controllers
                 Issuer = "Issuex",
                 Audience = "Audix",
                 Claims = claims,
-                IssuedAt = null,
                 NotBefore = DateTime.UtcNow,
                 Expires = DateTime.UtcNow.AddMinutes(120),
                 SigningCredentials = new SigningCredentials(SigningKey.Secret, SecurityAlgorithms.HmacSha256Signature),
             };
 
             var handler = new Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler();
-            handler.SetDefaultTimesOnTokenCreation = false;
+            handler.SetDefaultTimesOnTokenCreation = true;
             return handler.CreateToken(descriptor);
         }
 

@@ -1,5 +1,4 @@
 ﻿using System.Text;
-using Microsoft.AspNetCore.DataProtection;
 using Microsoft.IdentityModel.Tokens;
 
 namespace ExploringClientCredentialsFlow
