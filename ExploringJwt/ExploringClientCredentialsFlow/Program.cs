@@ -50,7 +50,7 @@ namespace ExploringClientCredentialsFlow
                             Reference = new OpenApiReference
                             {
                                 Type = ReferenceType.SecurityScheme,
-                                Id = "Bearer2"
+                                Id = "Bearer"
                             }
                         },
                         Array.Empty<string>()
